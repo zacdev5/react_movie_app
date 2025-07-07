@@ -5,5 +5,5 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: darkgray;
+  background-color: var(--bg-color);
 }
