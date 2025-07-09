@@ -9,6 +9,8 @@
   --success-color: #20c997;
   --warning-color: #ffc107;
   --danger-color: #e63946;
+  --toggle-bg: #f0eb9d;
+  --toggle-fg: #ffd000;
 
   color-scheme: light;
 
@@ -16,13 +18,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: var(--text-secondary-color);
-  background-color: var(--bg-color);
+  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 [data-theme="dark"] {
@@ -36,6 +38,8 @@
   --success-color: #56f09f;
   --warning-color: #f5c518;
   --danger-color: #ff4d6d;
+  --toggle-bg: #283452;
+  --toggle-fg: #00a6ff;
 
   color-scheme: dark;
 }
@@ -55,6 +59,9 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
+  color: var(--text-secondary-color);
+  background-color: var(--bg-color);
+  /* transition: background-color 250ms ease-in-out; */
 }
 
 #root {

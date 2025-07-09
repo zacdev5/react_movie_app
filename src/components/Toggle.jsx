@@ -1,3 +1,4 @@
+import "../css/Toggle.css"
 
 function Toggle({ handleChange, isChecked }) {
   return (

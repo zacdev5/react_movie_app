@@ -5,26 +5,24 @@ import Favorites from "./pages/Favorites";
 import { Routes, Route } from "react-router-dom";
 import Toggle from "./components/Toggle";
 import { MovieProvider } from "./contexts/MovieContext";
-import { useState } from "react";
+import { useTheme } from "./contexts/ThemeContext";
 
 function App() {
-  const [isDark, setDarkMode] = useState(false);
+  const {isDark, setIsDark} = useTheme();
 
   return (
     <MovieProvider>
-      <div data-theme={isDark && "dark"}>
-        <Navbar />
-        <Toggle 
-          isChecked={isDark}
-          handleChange={() => setDarkMode(!isDark)}
-        />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/favorites" element={<Favorites />}/>
-          </Routes>
-        </main>
-      </div>
+      <Navbar />
+      <Toggle 
+        isChecked={isDark}
+        handleChange={() => setIsDark(!isDark)}
+      />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/favorites" element={<Favorites />}/>
+        </Routes>
+      </main>
     </MovieProvider>
   );
 }
