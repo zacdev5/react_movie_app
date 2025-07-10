@@ -29,6 +29,12 @@
   background-color: var(--accent-secondary-color);
 }
 
+.logo {
+  height: 75px;
+  width: auto;
+  margin: -20px;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;

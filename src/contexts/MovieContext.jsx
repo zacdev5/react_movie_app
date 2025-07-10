@@ -5,16 +5,33 @@ const MovieContext = createContext();
 export const useMovieContext = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const storedFavs = localStorage.getItem("favorites");
+      return storedFavs ? JSON.parse(storedFavs) : [];
+    } catch (e) {
+      console.error("Failed to parse favorites from localStorage", e);
+      return [];
+    }
+  });
+
+  // useEffect(() => {
+  //   try {
+  //     const storedFavs = localStorage.getItem("favorites");
+  //     if (storedFavs) {
+  //       setFavorites(JSON.parse(storedFavs));
+  //     }
+  //   } catch (error) {
+  //     console.error("Error reading from localStorage:", error);
+  //   }
+  // }, []);
 
   useEffect(() => {
-    const storedFavs = localStorage.getItem("favorites");
-
-    if (storedFavs) setFavorites(JSON.parse(storedFavs));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    try {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } catch (error) {
+      console.error("Error saving to localStorage:", error);
+    }
   }, [favorites]);
 
   const addToFavorites = (movie) => {
