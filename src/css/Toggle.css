@@ -1,7 +1,7 @@
 .toggle-container {
     position: absolute;
-    top: 4em;
-    right: 2em;
+    top: 0em;
+    right: 1em;
 }
 
 .toggle {
@@ -11,7 +11,7 @@
 .toggle + label {
     display: flex;
     align-items: center;
-    font-size: 1.20em;
+    font-size: 1.5em;
     cursor: pointer;
     color: var(--text-primary-color);
 }
