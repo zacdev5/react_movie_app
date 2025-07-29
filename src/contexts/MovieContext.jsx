@@ -15,17 +15,6 @@ export const MovieProvider = ({ children }) => {
     }
   });
 
-  // useEffect(() => {
-  //   try {
-  //     const storedFavs = localStorage.getItem("favorites");
-  //     if (storedFavs) {
-  //       setFavorites(JSON.parse(storedFavs));
-  //     }
-  //   } catch (error) {
-  //     console.error("Error reading from localStorage:", error);
-  //   }
-  // }, []);
-
   useEffect(() => {
     try {
       localStorage.setItem("favorites", JSON.stringify(favorites));
