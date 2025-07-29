@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import "../css/NavBar.css";
 import logo from "../assets/main-icon.png"
+import Toggle from "../components/Toggle";
+import { useTheme } from "../contexts/ThemeContext";
 
 function NavBar() {
+  const {isDark, setIsDark} = useTheme();
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -18,6 +22,10 @@ function NavBar() {
           Favorites
         </Link>
       </div>
+      <Toggle 
+        isChecked={isDark}
+        handleChange={() => setIsDark(!isDark)}
+      />
     </nav>
   );
 }
